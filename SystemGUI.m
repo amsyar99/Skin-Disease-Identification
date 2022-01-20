@@ -48,7 +48,7 @@ function inputBtn_Callback(~, ~, handles)
 % hObject    handle to inputBtn (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-startingFolder = 'C:\Users\Amsyar\Documents\cs230\part5\FYPSystem\Dataset';
+startingFolder = 'C:\Users\Amsyar\Documents\cs230\part5\Dataset';
 if ~exist(startingFolder, 'dir')
   % If that folder doesn't exist, just start in the current folder.
   startingFolder = pwd;
