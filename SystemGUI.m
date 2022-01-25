@@ -1,29 +1,4 @@
 function varargout = SystemGUI(varargin)
-% SYSTEMGUI MATLAB code for SystemGUI.fig
-%      SYSTEMGUI, by itself, creates a new SYSTEMGUI or raises the existing
-%      singleton*.
-%
-%      H = SYSTEMGUI returns the handle to a new SYSTEMGUI or the handle to
-%      the existing singleton*.
-%
-%      SYSTEMGUI('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in SYSTEMGUI.M with the given input arguments.
-%
-%      SYSTEMGUI('Property','Value',...) creates a new SYSTEMGUI or raises the
-%      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before SystemGUI_OpeningFcn gets called.  An
-%      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to SystemGUI_OpeningFcn via varargin.
-%
-%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
-%      instance to run (singleton)".
-%
-% See also: GUIDE, GUIDATA, GUIHANDLES
-
-% Edit the above text to modify the response to help SystemGUI
-
-% Last Modified by GUIDE v2.5 17-Jan-2022 23:33:26
-
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
@@ -45,9 +20,6 @@ end
 
 % --- Executes on button press in inputBtn.
 function inputBtn_Callback(~, ~, handles)
-% hObject    handle to inputBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 startingFolder = 'C:\Users\Amsyar\Documents\cs230\part5\Dataset';
 if ~exist(startingFolder, 'dir')
   % If that folder doesn't exist, just start in the current folder.
@@ -77,9 +49,6 @@ drawnow;
 
 % --- Executes on button press in ImgFilterBtn.
 function ImgFilterBtn_Callback(hObject,eventdata, handles)
-% hObject    handle to ImgFilterBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 global imgInput;
 I= im2double(imgInput);
 im2= imadjust(I,[.2 .3 0; .6 .7 1],[]);
@@ -98,10 +67,6 @@ drawnow;
 
 % --- Executes on button press in ImgSegmentBtn.
 function ImgSegmentBtn_Callback(hObject, eventdata, handles)
-% hObject    handle to ImgSegmentBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% --- Executes just before SystemGUI is made visible.
 global imgInput;
 I = imgInput;
 gray = rgb2gray(I);
@@ -139,10 +104,6 @@ drawnow;
 
 
 function SystemGUI_OpeningFcn(hObject, eventdata, handles, varargin)
-% This function has no output args, see OutputFcn.
-% hObject    handle to figure
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to SystemGUI (see VARARGIN)
 
 % Choose default command line output for SystemGUI
@@ -168,9 +129,6 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in GLCMBtn.
 function GLCMBtn_Callback(hObject, eventdata, handles)
-% hObject    handle to GLCMBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 global imgInput;
 I= imgInput;
 I=double(I);
@@ -201,9 +159,6 @@ drawnow;
 
 % --- Executes on button press in SVMBtn.
 function SVMBtn_Callback(hObject, eventdata, handles)
-% hObject    handle to SVMBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 load ('trained.mat');
 
 testdata=readtable("Test.xlsx");
@@ -218,9 +173,6 @@ drawnow;
 
 % --- Executes on button press in resetBtn.
 function resetBtn_Callback(hObject, eventdata, handles)
-% hObject    handle to resetBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 cla(handles.axes1);
 cla(handles.axes2);
 cla(handles.axes3);
@@ -249,9 +201,6 @@ function uibuttongroup7_CreateFcn(hObject, eventdata, handles)
 
 % --- Executes on button press in ExitBtn.
 function ExitBtn_Callback(hObject, eventdata, handles)
-% hObject    handle to ExitBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 closereq();
 
 
